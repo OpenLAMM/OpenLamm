@@ -1,0 +1,35 @@
+---
+import Layout from '~/layouts/LandingLayout.astro';
+
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Header from '~/components/widgets/Header.astro';
+import { headerData } from '~/navigation';
+import Event from '../components/Event.astro';
+import Publication from './publication.astro';
+const metadata = {
+  title: 'Event',
+};
+const events = [
+{
+  imageSrc: '/images/mfm-eai.png',
+  title: 'ICML MFM-EAI WorkShop',
+  time: 'Fri, 26 Jul 2024',
+  publication: 'ICML (International Conference on Machine Learning) 2024',
+  location: 'Messe Wien Exhibition Congress Center, Vienna',
+  link: 'https://icml-mfm-eai.github.io/'
+}
+
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero2 Widget ******************* -->
+  <Fragment slot="header">
+    <Header {...headerData} isSticky showToggleTheme />
+  </Fragment>
+  <div style="display: flex;justify-content:center;margin:20px auto;">
+    <Event events={events} />
+  </div>
+  
+</Layout>

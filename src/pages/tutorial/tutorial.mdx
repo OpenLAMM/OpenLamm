@@ -1,0 +1,42 @@
+---
+slug: /
+sidebar_position: 1
+sidebar_class_name: guide_sidebar_index
+---
+
+import ProductSection from '_product-section.mdx';
+
+# <span style="font-size: 2.5rem; font-weight: bold; color: #333;">Tutorial</span>
+
+<p style="font-size: 1.5rem; margin-top: 1.5rem;">
+  Our code is <a href="https://github.com/OpenGVLab/LAMM" style="color: #007bff; text-decoration: none; font-weight: bold;">here</a>.
+</p>
+
+<ProductSection></ProductSection>
+
+<p style="font-size: 1.5rem; margin-top: 2.5rem;">
+  Once you have successfully configured the environment, the entire directory structure should be as follows:
+</p>
+
+<div style="background-color: #f8f9fa; padding: 16px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 1rem;">
+  <pre style="margin: 0; color: #333;">
+LAMM
+├── ckpt 
+│   ├── lamm_2d               # saved checkpoints in training
+│   └── ...
+├── data                      # dataset folder, see `Dataset Preparation` section for detail
+│   ├── LAMM                  # LAMM dataset
+│   ├── Octavius              # Octavius dataset
+│   ├── ChEF                  # ChEF dataset  
+│   └── ...                   # your custom dataset
+├── docs                      # document
+├── images                    # readme assets
+├── model_zoo                 # see `Model Preparation for Training` for detail 
+│   ├── vicuna_ckpt           # Vicuna-7B/13B
+│   ├── epcl_vit-L_256tokens  # EPCL pretraining checkpoints (Optional)
+│   └── ...
+├── requirements              # python environment requirements 
+├── src
+└── ...
+  </pre>
+</div>

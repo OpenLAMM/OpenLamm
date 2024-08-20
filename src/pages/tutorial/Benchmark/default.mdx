@@ -1,0 +1,128 @@
+---
+title: 'Default Benchmark'
+sidebar_position: 1
+---
+
+## LAMM-Benchmark
+
+![LAMM Benchmark](/images/lamm-benchmark.png)
+
+<p style="font-size: 1.25rem;">
+**Notes**: LAMM-Benchmark has now been fully implemented using ChEF, and we highly recommend using the latest ChEF evaluation method for benchmarking in your work. ChEF supports the common 2D and 3D tasks evaluation and locating tasks evaluation in LAMM. Please note that the GPT rank metric in LAMM is no longer applicable.
+</p>
+
+<p style="font-size: 1.25rem;">
+To evaluate LAMM/Octavius on LAMM-Benchmark in 2D common tasks, use the pre-defined model config (<code>src/config/ChEF/models/lamm.yaml</code> or <code>src/config/ChEF/models/octavius_2d+3d.yaml</code>) and the pre-defined recipes config (<code>src/config/ChEF/scenario_recipes/LAMM/</code>).
+</p>
+
+<pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 8px;">
+<code>python eval.py --model_cfg config/ChEF/models/lamm.yaml  --recipe_cfg config/ChEF/scenario_recipes/LAMM/ScienceQA.yaml</code>
+</pre>
+
+<p style="font-size: 1.25rem;">
+If you want to automately running all the evaluations sequentially, you can run
+</p>
+
+<pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 8px;">
+<code>sh tools/LAMM/eval_lamm2d.sh</code>
+</pre>
+
+<pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 8px;">
+<code>sh tools/LAMM/eval_lamm3d.sh</code>
+</pre>
+
+<p style="font-size: 1.25rem;">
+To evaluate Octavius on ScanNet Detection, run:
+</p>
+
+<pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 8px;">
+<code>sh tools/Octavius/octavius_ChEF.sh</code>
+</pre>
+
+## ChEF
+
+![ChEF Benchmark](/images/ChEF.png)
+
+<h3 style="font-size: 1.5rem; font-weight: bold; margin-top: 1.5rem;">Download Evaluated MLLMs</h3>
+
+<table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 1.125rem;">
+  <thead>
+    <tr>
+      <th style="border-bottom: 1px solid #ddd; padding: 12px; text-align: left; color: #666; font-weight: 600;">LLM</th>
+      <th style="border-bottom: 1px solid #ddd; padding: 12px; text-align: left; color: #666; font-weight: 600;">Vision Encoder</th>
+      <th style="border-bottom: 1px solid #ddd; padding: 12px; text-align: left; color: #666; font-weight: 600;">Language Model</th>
+      <th style="border-bottom: 1px solid #ddd; padding: 12px; text-align: left; color: #666; font-weight: 600;">Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">InstructBLIP</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">EVA-G</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">Vicuna 7B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://storage.googleapis.com/sfr-vision-language-research/LAVIS/models/InstructBLIP/instruct_blip_vicuna7b_trimmed.pth" style="color: #007bff; text-decoration: none; font-weight: 500;">instruct_blip_vicuna7b_trimmed</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">Kosmos2</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">CLIP ViT-L/14</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">Decoder 1.3B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://conversationhub.blob.core.windows.net/beit-share-public/kosmos-2/kosmos-2.pt" style="color: #007bff; text-decoration: none; font-weight: 500;">kosmos-2.pt</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">LAMM</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">CLIP ViT-L/14</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">Vicuna 13B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://huggingface.co/openlamm/lamm_13b_lora32_186k" style="color: #007bff; text-decoration: none; font-weight: 500;">lamm_13b_lora32_186k</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">LLaMA-Adapter-v2</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">CLIP ViT-L/14</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">LLaMA 7B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://github.com/ml-lab/LLaMA-Adapter-2" style="color: #007bff; text-decoration: none; font-weight: 500;">LORA-BIAS-7B</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">LLaVA</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">CLIP ViT-L/14</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">MPT 7B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://huggingface.co/liuhaotian/LLaVA-Lightning-MPT-7B-preview" style="color: #007bff; text-decoration: none; font-weight: 500;">LLaVA-Lightning-MPT-7B</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">MiniGPT-4</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">EVA-G</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">Vicuna 7B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://huggingface.co/Vision-CAIR/MiniGPT-4" style="color: #007bff; text-decoration: none; font-weight: 500;">MiniGPT-4</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">mPLUG-Owl</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">CLIP ViT-L/14</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">LLaMA 7B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://huggingface.co/MAGAer13/mplug-owl-llama-7b" style="color: #007bff; text-decoration: none; font-weight: 500;">mplug-owl-llama-7b</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">Otter</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">CLIP ViT-L/14</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">LLaMA 7B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://huggingface.co/luodian/OTTER-Image-LLaMA7B-LA-InContext" style="color: #007bff; text-decoration: none; font-weight: 500;">OTTER-9B-LA-InContext</a></td>
+    </tr>
+    <tr>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">Shikra</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">CLIP ViT-L/14</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;">LLaMA 7B</td>
+      <td style="padding: 12px; border-bottom: 1px solid #ddd;"><a href="https://huggingface.co/shikras/shikra-7b-delta-v1" style="color: #007bff; text-decoration: none; font-weight: 500;">shikra-7b</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="font-size: 1.25rem; margin-top: 2rem;">
+Organize them as below:
+</p>
+
+<pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 16px; border-radius: 8px; font-family: 'Courier New', Courier, monospace; font-size: 1.125rem;">
+<code>
+ckpt
+├── epcl_vit-L_256tokens
+├──
+│   ├── lamm_2d               # saved checkpoints in training
+│   └── ...
+└── ...
+</code>
+</pre>
